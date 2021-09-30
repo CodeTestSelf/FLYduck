@@ -2,4 +2,5 @@
 front-end : html, css
 Back-end  : Python
 Data-base : MongoDB
-1
+
+App-type  : Web-app
