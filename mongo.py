@@ -1,19 +1,6 @@
-DatabaseName = "hi"
-
-showDarabases = "show dbs" #shows available databases
-
-createNewDatabase = "use " + DatabaseName #Creates new Database
-
-switchDatabase = "use "+ DatabaseName #Switches to database
-
-
-
-print(createNewDatabase)
-
-
 import pymongo
 
-def mongoadd(mydict,databaseName,collectionName):
+def mongoAdd(mydict,databaseName,collectionName):
     
     myclient = pymongo.MongoClient('mongodb://localhost:27017/')
 
@@ -25,4 +12,8 @@ def mongoadd(mydict,databaseName,collectionName):
 
     mycol.insert_one(mydict)
     print(myclient.list_database_names())
+
+
+def mongoUpdate():
+    pass
     
