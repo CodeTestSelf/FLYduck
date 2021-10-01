@@ -1,5 +1,5 @@
 
-
+from mongo import mongoadd
 def addInventory(inventoryVariables):
     inventoryVariables = {"SerialNum"       : inventoryVariables["SerialNum"], 
                           "ProductName"     : inventoryVariables["ProductName"], 
@@ -11,7 +11,9 @@ def addInventory(inventoryVariables):
                           "PurchasedFrom"   : inventoryVariables["PurchasedFrom"],
                           "PurchaseBillNum" : inventoryVariables["PurchaseBillNum"] 
                       }
+    mongoadd(inventoryVariables)                  
     print(inventoryVariables)
+
 
 inventoryVariables = {"SerialNum"       : "12345", 
                           "ProductName"     : "ring", 
