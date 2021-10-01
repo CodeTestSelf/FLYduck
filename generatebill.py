@@ -1,4 +1,4 @@
-from mongopytest import mongoadd
+from mongo import mongoadd
 
 def itemPrice(sno,grossWeight, netWeight, making, rate):
     
