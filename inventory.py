@@ -1,6 +1,6 @@
 
 from mongo import mongoadd
-def addInventory(inventoryVariables):
+def addInventory(inventoryVariables,databaseName,collectionName):
     inventoryVariables = {"SerialNum"       : inventoryVariables["SerialNum"], 
                           "ProductName"     : inventoryVariables["ProductName"], 
                           "GrossWeight"     : inventoryVariables["GrossWeight"] , 
@@ -11,7 +11,7 @@ def addInventory(inventoryVariables):
                           "PurchasedFrom"   : inventoryVariables["PurchasedFrom"],
                           "PurchaseBillNum" : inventoryVariables["PurchaseBillNum"] 
                       }
-    mongoadd(inventoryVariables)                  
+    mongoadd(inventoryVariables,databaseName,collectionName)                  
     print(inventoryVariables)
 
 
@@ -25,4 +25,8 @@ inventoryVariables = {"SerialNum"       : "12345",
                           "PurchasedFrom"   : "",
                           "PurchaseBillNum" : "" 
                       }
-addInventory(inventoryVariables)
+
+databaseName="SoumyaJewellers"
+collectionName="Inventory"                      
+addInventory(inventoryVariables,databaseName,collectionName)
+
