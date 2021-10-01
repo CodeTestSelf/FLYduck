@@ -13,13 +13,13 @@ print(createNewDatabase)
 
 import pymongo
 
-def mongoadd(mydict):
+def mongoadd(mydict,databaseName,collectionName):
     
     myclient = pymongo.MongoClient('mongodb://localhost:27017/')
 
-    mydb = myclient['test1']
+    mydb = myclient[databaseName]
 
-    mycol = mydb["products"]
+    mycol = mydb[collectionName]
 
     # mydict = {"name": "krishna", "age" : "24"}
 
