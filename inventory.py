@@ -1,7 +1,7 @@
 
 from mongo import mongoAdd
 def addInventory(inventoryVariables,databaseName,collectionName):
-    inventoryVariables = {"_id"             : inventoryVariables["SerialNum"], 
+    inventoryVariables = {"_id"             : inventoryVariables["_id"], 
                           "ProductName"     : inventoryVariables["ProductName"], 
                           "GrossWeight"     : inventoryVariables["GrossWeight"] , 
                           "NetWeight"       : inventoryVariables["NetWeight"], 
@@ -32,3 +32,5 @@ databaseName="SoumyaJewellers"
 collectionName="Inventory"                      
 addInventory(inventoryVariables,databaseName,collectionName)
 
+def serialNum():
+    pass
