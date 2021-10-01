@@ -25,3 +25,4 @@ def mongoadd(mydict,databaseName,collectionName):
 
     mycol.insert_one(mydict)
     print(myclient.list_database_names())
+    

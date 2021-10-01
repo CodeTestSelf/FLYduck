@@ -15,6 +15,8 @@ def addInventory(inventoryVariables,databaseName,collectionName):
     print(inventoryVariables)
 
 
+
+
 inventoryVariables = {"SerialNum"       : "12345", 
                           "ProductName"     : "ring", 
                           "GrossWeight"     : 1 , 
