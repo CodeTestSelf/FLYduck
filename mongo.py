@@ -16,4 +16,11 @@ def mongoAdd(mydict,databaseName,collectionName):
 
 def mongoUpdate():
     pass
+
+
+def mongoRead():
+    pass
+
+def mongoUpdate():
+    pass
     
