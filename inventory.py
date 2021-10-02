@@ -33,4 +33,5 @@ collectionName="Inventory"
 addInventory(inventoryVariables,databaseName,collectionName)
 
 def serialNum():
+    
     pass
