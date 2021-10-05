@@ -7,11 +7,9 @@ def innerloop(key,value,counter,x):
     flag = False
     if counter==len(ar):
         flag=True
+        print("end")
         return True
       
-        
-    
-    
     if counter<len(ar):
       
       if x[key[counter]]==value[counter]:
@@ -21,21 +19,17 @@ def innerloop(key,value,counter,x):
         counter+=1
         
         flag=innerloop(key,value,counter,x)
-        print("flag=="+str(flag))
+        #print("flag=="+str(flag))
         
         return flag
      
       else:
         print("false")
-        
         flag = False
         return flag
         
           
-    else:
-        print("end")
-        print(flag)
-        
+    
         
 
 def filter(databaseName,collectionName,ar):
@@ -71,10 +65,10 @@ def filter(databaseName,collectionName,ar):
         print(x)
         print("")
         
-
-        a.append(x)    
+        if y==True:
+            a.append(x)    
                
-                  
+    print(a)             
                 
                 
             
@@ -83,7 +77,8 @@ def filter(databaseName,collectionName,ar):
 
 mydict1={"age":"1"}
 mydict2={"name":"krishna"}
-ar=[mydict2,mydict1]
+mydict3={"place":"hnk"}
+ar=[mydict2,mydict1,mydict3]
 filter("test1","products",ar)
 
 
