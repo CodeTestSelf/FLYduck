@@ -7,15 +7,13 @@ def innerloop(key,value,counter,x):
     flag = False
     if counter==len(ar):
         flag=True
-        print("True")
-        a=1
-        return a
-        print("not end")
+        return True
+      
         
     
     
     if counter<len(ar):
-      #print(value[counter])
+      
       if x[key[counter]]==value[counter]:
         
         print(x[key[counter]],end="")
@@ -25,6 +23,7 @@ def innerloop(key,value,counter,x):
         flag=innerloop(key,value,counter,x)
         print("flag=="+str(flag))
         
+        return flag
      
       else:
         print("false")
