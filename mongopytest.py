@@ -6,41 +6,47 @@ def mongoUpdate():
     pass
 
 
-
 mydict={"name":"hi","age": "0"}
 
-
-def mongoRead(mydict,databaseName,collectionName):
-    
+def mongoRead(mydict,databaseName,collectionName):    
     
     myclient = pymongo.MongoClient('mongodb://localhost:27017/')
-
     mydb = myclient[databaseName]
-
     mycol = mydb[collectionName]
 
-    x=mycol.find_one(mydict)
-    print(x)
-    
+    x = mycol.find_one(mydict)
+    print(x)            
 
-
-            
-
-def filter(databaseName,collectionName,ar):
-    
+def filteredSearch(databaseName,collectionName,ar):#ar is input list of key value pairs of filters required
     
     myclient = pymongo.MongoClient('mongodb://localhost:27017/')
-
     mydb = myclient[databaseName]
-
     mycol = mydb[collectionName]
-
-    # mydict = {"name": "krishna", "age" : "24"}
+    
     counter = 0
     index=0
-    a=[]
+    searchResult=[]
     key=[]
     value=[]
+
+    def innerloop(key,value,counter,x):    
+        flag = False
+        if counter==len(ar):
+            flag=True
+            return True #ends here if all filters match
+      
+        if counter<len(ar):
+
+         if x[key[counter]]==value[counter]:
+            print(x[key[counter]],end="")
+            print("===="+value[counter])
+            counter+=1
+            flag=innerloop(key,value,counter,x)
+            return flag
+     
+         else:
+            flag = False
+            return flag
     
     for x in range(0,len(ar)):     #converting keys and values into seperate lists from input list of dictionaries
         
@@ -48,29 +54,25 @@ def filter(databaseName,collectionName,ar):
         value.append(valueAsList[0])
 
         keyAsList=[*ar[x].keys()]
-        key.append(keyAsList[0])
+        key.append(keyAsList[0])  
+    
+    for x in mycol.find():  
+        y=innerloop(key,value,counter,x)
         
-        
-    print(value)
-    print(key)
-    for x in mycol.find():        
-            if x[key[counter]]==value[counter] and x[key[1]]==value[1]:
-                counter+=1
-                  
-                a.append(x)
-                
-                
-                      
-    print(a)     
-            
+        print(y)
+        print(x)
+        print("")
+
+        if y==True:
+            counter+=1
+            searchResult.append(x)       
+    print(searchResult)                      
     if (counter==0):
         print("record not found")
 
 mydict1={"age":"1"}
 mydict2={"name":"krishna"}
-ar=[mydict2,mydict1]
-filter("test1","products",ar)
-
-
-
-
+mydict3={"place":"hnk"}
+ar=[mydict2,mydict1,mydict3]
+#filteredSearch("test1","products",ar)
+#mongoRead(mydict,"test1","products")
