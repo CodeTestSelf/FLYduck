@@ -85,9 +85,6 @@ def filteredSearch(databaseName,collectionName,filter): #filter is input list of
         print("record not found")
 
 
-  
-
-
 
 def searchOne(databaseName,collectionName,index,value):  #Search the collection when serial num or id is given as parameter
     
