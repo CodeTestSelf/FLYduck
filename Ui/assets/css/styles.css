@@ -1,0 +1,66 @@
+/* Header*/
+#header {
+    transition: all 0.5s;
+    z-index: 997;
+    transition: all 0.5s;
+    top: 20px;
+  }
+  
+  #header .header-container {
+    background: rgb(6, 25, 77);
+    padding: 10px 5px 10px 50px;
+  }
+  
+  #header.header-scrolled {
+    background: #fff;
+    box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
+    top: 0;
+  }
+
+
+  /* Navigation */
+  /*--------------------------------------------------------------
+# Navigation Menu
+--------------------------------------------------------------*/
+/* Desktop Navigation */
+.nav-menu, .nav-menu * {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nav-menu > ul > li {
+  position: relative;
+  white-space: nowrap;
+  float: left;
+}
+
+.nav-menu a {
+  display: block;
+  position: relative;
+  color: #5500ff;
+  padding: 10px 15px;
+  transition: 0.3s;
+  font-size: 13px;
+  font-weight: 500;
+  font-family: "Poppins", sans-serif;
+}
+
+.nav-menu a:hover, .nav-menu .active > a, .nav-menu li:hover > a {
+  color: #ee7a29;
+  text-decoration: none;
+}
+
+.nav-menu .contact a {
+  background: #ee7a29;
+  color: #fff;
+  border-radius: 50px;
+  margin: 0 15px;
+  padding: 10px 25px;
+}
+
+.nav-menu .contact a:hover {
+  background: #fab27f;
+  color: rgb(0, 0, 0);
+}
+
