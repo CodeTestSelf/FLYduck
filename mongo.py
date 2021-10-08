@@ -10,18 +10,27 @@ def mongoAdd(mydict,databaseName,collectionName):
     
 
 
-def mongoUpdate():
-    pass
-
-
-def mongoRead(mydict,databaseName,collectionName):
+def mongoUpdate(databaseName,collectionName,update):#update is a list with first value serian num , second dictionary of new values doesnt return anything
 
     myclient = pymongo.MongoClient('mongodb://localhost:27017/')
     mydb = myclient[databaseName]
     mycol = mydb[collectionName]
-    x=mycol.find_one(mydict)
+    
+    update[0]={"_id":int(update[0])}
+    print(update[0])
+    myquery = update[0]
+    newvalues = { "$set": update[1] }
+    mycol.update_one(update[0],newvalues)    
+
+
+def mongoRead(databaseName,collectionName):
+
+    myclient = pymongo.MongoClient('mongodb://localhost:27017/')
+    mydb = myclient[databaseName]
+    mycol = mydb[collectionName]
     #print(myclient.list_database_names()) 
-    print(x)
+    for x in mycol.find():
+        print(x) 
 
 
 def filteredSearch(databaseName,collectionName,filter): #filter is input list of key value pairs of filters required
@@ -78,9 +87,7 @@ def filteredSearch(databaseName,collectionName,filter): #filter is input list of
 
   
 
-def mongoUpdate():
-    pass
-    
+
 
 def searchOne(databaseName,collectionName,index,value):  #Search the collection when serial num or id is given as parameter
     
