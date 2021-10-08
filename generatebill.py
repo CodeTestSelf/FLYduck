@@ -1,4 +1,4 @@
-from mongo import mongAadd
+from mongo import mongoAdd
 
 def itemPrice(sno,grossWeight, netWeight, making, rate):
     
@@ -21,7 +21,8 @@ def generateBill(*item):
     for a in item:
 
         x=itemPrice(a["name"],a["grossWeight"], a["netWeight"],a["making"], a["rate"])
-        mongoAdd(a)
+
+        mongoAdd(a,"SoumyaJewellers","Sales")
         total.append(x)
         totalItems+=1
 

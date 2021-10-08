@@ -7,7 +7,7 @@ def mongoAdd(mydict,databaseName,collectionName):
     mycol = mydb[collectionName]
     
     mycol.insert_one(mydict)
-    print(myclient.list_database_names())
+    
 
 
 def mongoUpdate():
@@ -73,7 +73,7 @@ def filteredSearch(databaseName,collectionName,filter): #filter is input list of
             searchResult.append(x)       
     print(searchResult)                      
     if (counter==0):
-        pass#print("record not found")
+        print("record not found")
 
 
   
@@ -122,4 +122,5 @@ def searchAll(databaseName,collectionName,index,value):#Search all the dictionar
 #mydict3={"place":"hnk"}
 #filter=[mydict2,mydict1,mydict3]
 #filteredSearch("test1","products",filter)  
-searchOne("test1","products","name","krishna")
+
+#searchOne("test1","products","name","krishna")
