@@ -122,6 +122,19 @@ def searchAll(databaseName,collectionName,index,value):#Search all the dictionar
         print("record not found")
 
 
+def mongoDelete(databaseName,collectionName,delete):
+
+    myclient = pymongo.MongoClient('mongodb://localhost:27017/')
+    mydb = myclient[databaseName]
+    mycol = mydb[collectionName]
+    
+    for x in mycol.find():
+        
+        if x["_id"]==delete:
+            
+            mycol.delete_one(x)
+
+
 #searchAll("test1","products","name","krishna")
 
 #mydict1={"age":"1"}
