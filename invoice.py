@@ -1,14 +1,25 @@
 from reportlab.pdfgen import canvas  #pip install reportlab
 from reportlab.lib.pagesizes import A4
+import datetime
+
 
 
 def generate_invoice():
+    
+    x = datetime.datetime.now()
+    date=str(x.day)+" - "+x.strftime("%b")+" - "+str(x.year)
+
+    
+
+
     c = canvas.Canvas("sample.pdf", pagesize=A4)
     c.drawImage("invoice.jpg", 0, 0,width=600,height=850)
     
     c.setLineWidth(0.2)
     c.setFont('Helvetica', 10)
     c.drawString(180,508,"1.2")
+
+    c.drawString(500,626,date)
 
     counter=460
     ar=[1.2,1.3,4.5,5.0,"lkajslfjalsjflas"]
