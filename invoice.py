@@ -4,12 +4,14 @@ import datetime
 
 
 
-def generate_invoice():
-    
-    x = datetime.datetime.now()
-    date=str(x.day)+" - "+x.strftime("%b")+" - "+str(x.year)
 
-    
+def generate_invoice():
+
+    billNo="001"
+    x = datetime.datetime.now()
+    date = str(x.day)+" - "+x.strftime("%b")+" - "+str(x.year)
+    time = str(x.strftime("%I"))+" : "+str(x.strftime("%M"))+" : "+x.strftime("%p")
+    InvoiceNumber = str(x.year)+str(x.month)+str(x.day)+str(billNo)
 
 
     c = canvas.Canvas("sample.pdf", pagesize=A4)
@@ -17,24 +19,28 @@ def generate_invoice():
     
     c.setLineWidth(0.2)
     c.setFont('Helvetica', 10)
-    c.drawString(180,508,"1.2")
+    c.drawString(185,500,"1.2")
 
     c.drawString(500,626,date)
+    c.drawString(500,612,time)
+    c.drawString(110,626,InvoiceNumber)
 
-    counter=460
-    ar=[1.2,1.3,4.5,5.0,"lkajslfjalsjflas"]
-    for x in ar:
+    counter=500
+    
+    item1={}
+    items=[1.2,1.3,4.5,5.06,6,3,5,1]
+    for x in items:
          if len(str(x))>8:
              counter2=7
              counter3=0
              for y in range(0,int(len(str(x))/7)):
-                 c.drawString(180, counter, str(x[counter3:counter2]))
+                 c.drawString(185, counter, str(x[counter3:counter2]))
                  counter-=10
                  counter3+=(counter2+1)
                  counter2+=7
         
          else:
-             c.drawString(180, counter, str(x))
+             c.drawString(185, counter, str(x))
          counter-=25
         
     
