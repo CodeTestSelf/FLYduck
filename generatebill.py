@@ -1,12 +1,22 @@
 import pymongo
 from mongo import mongoAdd,mongoUpdate
 from invoice import generate_invoice
+import datetime
 
 def invoiceNumber():
     myclient = pymongo.MongoClient('mongodb://localhost:27017/')
     mydb = myclient["SoumyaJewellers"]
     mycol = mydb["invoiceNumber"]
-    #print(myclient.list_database_names()) 
+  
+    x = datetime.datetime.now()
+    date = str(x.day)+x.strftime("%m")+str(x.year)
+    
+    for x in mycol.find():
+        if x["_id"]==2:
+            if x["Date"]!=date:    
+                mongoUpdate("SoumyaJewellers","invoiceNumber",[2,{"Date":date}])
+                mongoUpdate("SoumyaJewellers","invoiceNumber",[1,{"InvoiceNumber":1}])
+
     for x in mycol.find():
         invoiceNumber=x["InvoiceNumber"]        
         mongoUpdate("SoumyaJewellers","invoiceNumber",[1,{"InvoiceNumber":invoiceNumber+1}])
