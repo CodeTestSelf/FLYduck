@@ -3,7 +3,7 @@ from mongo import mongoAdd,mongoUpdate
 from invoice import generate_invoice
 import datetime
 
-def invoiceNumber():
+def invoiceNumber(): #generates invoice number
     myclient = pymongo.MongoClient('mongodb://localhost:27017/')
     mydb = myclient["SoumyaJewellers"]
     mycol = mydb["invoiceNumber"]
@@ -19,7 +19,7 @@ def invoiceNumber():
 
     for x in mycol.find():
         invoiceNumber=x["InvoiceNumber"]        
-        mongoUpdate("SoumyaJewellers","invoiceNumber",[1,{"InvoiceNumber":invoiceNumber+1}])
+        mongoUpdate("SoumyaJewellers","invoiceNumber",[1,{"InvoiceNumber":invoiceNumber+1}]) 
         return invoiceNumber
     
 
