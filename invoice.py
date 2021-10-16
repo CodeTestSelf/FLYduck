@@ -17,7 +17,7 @@ def generate_invoice(items,otherVariables,gst,invoiceNumber):
     customerAddress=otherVariables["CustomerAddress"]
     customerContact=otherVariables["CustomerContact"]
 
-    c = canvas.Canvas(InvoiceNumber+".pdf", pagesize=A4)
+    c = canvas.Canvas("invoices/"+InvoiceNumber+".pdf", pagesize=A4)
     c.drawImage("invoice.jpg", 0, 0,width=600,height=850)
     
     c.setLineWidth(0.3)
