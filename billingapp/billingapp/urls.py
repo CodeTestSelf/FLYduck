@@ -19,5 +19,5 @@ from ebill.views import index
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('ebill/',index)
+    path('',index)
 ]

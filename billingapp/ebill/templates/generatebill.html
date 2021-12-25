@@ -1,0 +1,23 @@
+
+{%extends 'base.html'%}    
+    
+{%block body%}
+
+<form action=""  method="POST">  
+    {% csrf_token %}
+    {% for }
+    Product Name         <input name='Productname' type="text" ><br>
+    Description          <textarea name="Description"></textarea><br>
+    Gross_Weight         <input name="Gross_Weight" type="text"><br>
+    Net_Weight           <input id="Net_Weight" type="text"><br>
+    Material             <input id="Material" type="text"><br>
+    Purity               <input id="Purity" type="text"><br>
+    Wastage               <input id="Wastage" type="text"><br>
+    
+    <input name="+" type="submit" value="Add Item">
+    
+    <input name="bill"type="submit" value="GenerateBill">
+    
+</form>
+
+{%endblock%}
