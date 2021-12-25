@@ -18,5 +18,9 @@ from django.urls import path,include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+<<<<<<< HEAD
     path('',include('ebill.urls')),
+=======
+    path('',index)
+>>>>>>> 4d7bcd29961ffff2c1323077ba86397f1f846d10
 ]
