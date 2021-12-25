@@ -1,6 +1,9 @@
 .body{
   font-style: italic;
 }
-.body form{
+body form{
   font-style: italic;
+}
+body{
+  background-color: aqua;
 }

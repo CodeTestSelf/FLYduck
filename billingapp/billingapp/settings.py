@@ -136,6 +136,6 @@ STATICFILES_DIRS = [
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "static"),
-    '/var/www/static/',
+    os.path.join(BASE_DIR, "ebill\static"),
+    
 ]
