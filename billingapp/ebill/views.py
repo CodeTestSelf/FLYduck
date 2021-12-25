@@ -17,7 +17,6 @@ def addformfield(request):
     return render(request,"generatebill.html")
 
 
-
 def addformfield(request):
     formcount=request.formcount
     while formcount<8:
