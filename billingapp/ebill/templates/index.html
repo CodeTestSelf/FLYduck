@@ -8,24 +8,16 @@
 {%block body%}
 
 <link rel="stylesheet" href="{% static 'css/style.css' %}">
-<link href="{% static 'js/script.css' %}">
 
-<form action=""  method="POST">  
-    {% csrf_token %}
-    
-    Product Name         <input name='Productname' type="text" ><br>
-    Description          <textarea name="Description"></textarea><br>
-    Gross_Weight         <input name="Gross_Weight" type="text"><br>
-    Net_Weight           <input id="Net_Weight" type="text"><br>
-    Material             <input id="Material" type="text"><br>
-    Purity               <input id="Purity" type="text"><br>
-    Wastage               <input id="Wastage" type="text"><br>
-    
-    <input name="+" type="submit" value="Add Item">
-    
-    <input name="bill"type="submit" value="GenerateBill">
-    
-</form>
+
+  {%csrf_token%}
+<script type="text/javascript" src="{{STATIC_URL}}/static/js/script.js"> addItem()</script>
+
+
+
+
+
+<input button action="" value="add Item" onclick="addItem()" id = "add" method="POST"></button>
 {{form}}
 
 {%endblock%}
