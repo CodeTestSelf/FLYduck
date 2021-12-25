@@ -1,70 +1,30 @@
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Billing</title>
+{%extends 'base.html'%}    
+{% load static %} 
 
+{%block head%}
+<title>generate bill</title>
+{%endblock%}
 
-    <!-- CSS -->
-    <!-- CSS File -->
-  <link href="assets/css/styles.css" rel="stylesheet">
-</head>
-<body>
+{%block body%}
 
-    <!-- header start -->
+<link rel="stylesheet" href="{% static '/css/style.css' %}">
 
-    <header id="header" class="top_header">
-        <div class="container">
-            <div class="header-container fixed-top d-flex align-items-center justify-content-between">
-
-                <!-- Nav start -->
-                <nav class="nav-menu">
-                  <ul>
-
-                    <li class="active"><a href="#">Home</a></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Why US</a></li>
-                
-                    
-                  </ul>
-                </nav>
-                <!-- Nav  end -->
-              </div>
-           
-        </div>
-        
-    </header>
-
-    <!-- header end -->
-
-    <!-- main start -->
-
-    <section id="main-page" class="main-page">
-
-        <div class="container">
-            <div class="mainbg">
-                <!-- bg image -->
-                <div class="splitscreen">
-                    <div class="splitleft">
-                        <!-- nothing -->
-                    </div>
-                    <div class="splitright">
-                        <!-- login page -->
-                    </div>
-                </div>
-            </div>
-        </div>
-
-    </section>
-
-    <!-- main end -->
-
-    <!-- footer start -->
-    <footer id="footer">
-
-    </footer>
-    <!-- footer end -->
+<form action=""  method="POST">  
+    {% csrf_token %}
     
-</body>
-</html>
+    Product Name         <input name='Productname' type="text" ><br>
+    Description          <textarea name="Description"></textarea><br>
+    Gross_Weight         <input name="Gross_Weight" type="text"><br>
+    Net_Weight           <input id="Net_Weight" type="text"><br>
+    Material             <input id="Material" type="text"><br>
+    Purity               <input id="Purity" type="text"><br>
+    Wastage               <input id="Wastage" type="text"><br>
+    
+    <input name="+" type="submit" value="Add Item">
+    
+    <input name="bill"type="submit" value="GenerateBill">
+    
+</form>
+{{form}}
+
+{%endblock%}
