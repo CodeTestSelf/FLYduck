@@ -2,6 +2,7 @@ import pymongo
 from mongo import mongoAdd,mongoUpdate
 from invoice import generate_invoice
 import datetime
+import webbrowser
 
 def invoiceNumber(): #generates invoice number
     myclient = pymongo.MongoClient('mongodb://localhost:27017/')
@@ -36,40 +37,6 @@ def itemPrice(sno,grossWeight, netWeight, making, rate,wastage):
     return total
     
 
-item1 = {                 "_id"             : "123", 
-                          "ProductName"     : "Muthyala Haram1234567124312", 
-                          "GrossWeight"     : "12.45" , 
-                          "NetWeight"       : "12.45", 
-                          "Rate"            : "4561", 
-                          "Purity"          : "916 KDM",
-                          "Material"        : "Gold",
-                          "Wastage"         : "10%",
-                          "Amount"          : "",
-                          "Making"          : "1001" ,
-                          "Total"           : ""
-                      }
-item2 = {                 "_id"             : "123", 
-                          "ProductName"     : "Muthyala Haram", 
-                          "GrossWeight"     : "20.45" , 
-                          "NetWeight"       : "20.45", 
-                          "Rate"            : "4562", 
-                          "Purity"          : "916 KDM",
-                          "Material"        : "Gold",
-                          "Wastage"         : "10%",
-                          "Amount"          : "",
-                          "Making"          : "1000" ,
-                          "Total"           : ""
-                      }
-    
-items=[item1,item2]
-
-otherVariables={           "CustomerName"      :"Bitla Krishna Sai",
-                           "CustomerAddress"   :"Gudibandal, Hanamkonda",
-                           "CustomerContact"   :"8106040999 ",
-                           "Email_id"          :"",
-                           "invoiceNumber"     :"12345",
-                           "PaymentMode"       :"Cash"
-}
 
 
 
@@ -143,10 +110,63 @@ def generateBill(items,otherVariables):
                     
     invoicenumber=invoiceNumber()                
     generate_invoice(items,otherVariables,gst,invoicenumber)
+    
+    billNo=str(invoicenumber).zfill(3)
+    x = datetime.datetime.now()
+    invoicenumber = str(x.year)+str(x.month)+str(x.day)+str(billNo)
+    
+    sale["InvoiceNumber"]=invoicenumber
     mongoAdd(sale,"SoumyaJewellers","Sales")
     
-    print("Total number of items is "+ str(totalItems))
+    print("Total ndumber of items is "+ str(totalItems))
     print("Grand total is "+ str(grandTotal))
-       
+    return str(invoicenumber)  
+
+
+#input
+
+otherVariables={           "CustomerName"      :"Bitla Krishna Sai",
+                           "CustomerAddress"   :"Gudibandal, Hanamkonda",
+                           "CustomerContact"   :"8106040999 ",
+                           "Email_id"          :"",
+                           "invoiceNumber"     :"12345",
+                           "PaymentMode"       :"Cash"
+}
+
+item1 = {                 "_id"             : "123", 
+                          "ProductName"     : "Muthyala Haram1234567124312", 
+                          "GrossWeight"     : "12.45" , 
+                          "NetWeight"       : "12.45", 
+                          "Rate"            : "4561", 
+                          "Purity"          : "916 KDM",
+                          "Material"        : "Gold",
+                          "Wastage"         : "10%",
+                          "Amount"          : "",
+                          "Making"          : "1001" ,
+                          "Total"           : ""
+                      }
+item2 = {                 "_id"             : "123", 
+                          "ProductName"     : "Muthyala Haram", 
+                          "GrossWeight"     : "20.45" , 
+                          "NetWeight"       : "20.45", 
+                          "Rate"            : "4562", 
+                          "Purity"          : "916 KDM",
+                          "Material"        : "Gold",
+                          "Wastage"         : "10%",
+                          "Amount"          : "",
+                          "Making"          : "1000" ,
+                          "Total"           : ""
+                      }
     
-generateBill(items,otherVariables)
+items=[item1,item2]
+
+
+invoicenumber=generateBill(items,otherVariables)
+url=r'file://C:\Users\krishnasai\Desktop\Django Projects\bill\desktop Stand Alone\invoices' +"\\"+invoicenumber+".pdf"
+
+# print("check")
+# print(invoicenumber)
+# print(url)
+
+webbrowser.open_new(url)
+
