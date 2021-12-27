@@ -33,7 +33,7 @@ def index(request):
                           "Purity"          : "916 KDM",
                           "Material"        : "Gold",
                           "Wastage"         : "10%",
-                          "Amount"          : "",
+                          "Amsount"          : "",
                           "Making"          : "1000" ,
                           "Total"           : ""
                       }
