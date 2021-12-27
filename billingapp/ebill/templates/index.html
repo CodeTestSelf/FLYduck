@@ -7,11 +7,13 @@
 
 {%block body%}
 
-<link rel="stylesheet" href="{% static 'css/style.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
 
 
   {%csrf_token%}
-<script type="text/javascript" src="{{STATIC_URL}}/static/js/script.js"> addItem()</script>
+<script type="text/javascript" src="{{STATIC_URL}}/static/js/script.js">
+  document.write("hello")
+</script>
 
 
 

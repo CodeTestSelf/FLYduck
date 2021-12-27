@@ -5,6 +5,7 @@ from ebill import views
 
 urlpatterns = [
     path('', views.index,name="index"),
+    path('',views.generateBill,name="index"),
     
     
 ]
