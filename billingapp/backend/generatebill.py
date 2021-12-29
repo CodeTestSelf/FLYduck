@@ -59,7 +59,7 @@ def generateBill(items,otherVariables):
         
         
 
-        sale["InvoiceNumber"]             =otherVariables["invoiceNumber"]
+        sale["InvoiceNumber"]             =""
         sale["ProductName"+str(counter)]  =a["ProductName"]
         sale["GrossWeight"+str(counter)]  =a["GrossWeight"] 
         sale["NetWeight"+str(counter)]    =a["NetWeight"]
@@ -125,48 +125,48 @@ def generateBill(items,otherVariables):
 
 #input
 
-otherVariables={           "CustomerName"      :"Bitla Krishna Sai",
-                           "CustomerAddress"   :"Gudibandal, Hanamkonda",
-                           "CustomerContact"   :"8106040999 ",
-                           "Email_id"          :"",
-                           "invoiceNumber"     :"12345",
-                           "PaymentMode"       :"Cash"
-}
+# otherVariables={           "CustomerName"      :"Bitla Krishna Sai",
+#                            "CustomerAddress"   :"Gudibandal, Hanamkonda",
+#                            "CustomerContact"   :"8106040999 ",
+#                            "Email_id"          :"",
+#                            "invoiceNumber"     :"12345",
+#                            "PaymentMode"       :"Cash"
+# }
 
-item1 = {                 "_id"             : "123", 
-                          "ProductName"     : "Muthyala Haram1234567124312", 
-                          "GrossWeight"     : "12.45" , 
-                          "NetWeight"       : "12.45", 
-                          "Rate"            : "4561", 
-                          "Purity"          : "916 KDM",
-                          "Material"        : "Gold",
-                          "Wastage"         : "10%",
-                          "Amount"          : "",
-                          "Making"          : "1001" ,
-                          "Total"           : ""
-                      }
-item2 = {                 "_id"             : "123", 
-                          "ProductName"     : "Muthyala Haram", 
-                          "GrossWeight"     : "20.45" , 
-                          "NetWeight"       : "20.45", 
-                          "Rate"            : "4562", 
-                          "Purity"          : "916 KDM",
-                          "Material"        : "Gold",
-                          "Wastage"         : "10%",
-                          "Amount"          : "",
-                          "Making"          : "1000" ,
-                          "Total"           : ""
-                      }
+# item1 = {                 "_id"             : "123", 
+#                           "ProductName"     : "Muthyala Haram1234567124312", 
+#                           "GrossWeight"     : "12.45" , 
+#                           "NetWeight"       : "12.45", 
+#                           "Rate"            : "4561", 
+#                           "Purity"          : "916 KDM",
+#                           "Material"        : "Gold",
+#                           "Wastage"         : "10%",
+#                           "Amount"          : "",
+#                           "Making"          : "1001" ,
+#                           "Total"           : ""
+#                       }
+# item2 = {                 "_id"             : "123", 
+#                           "ProductName"     : "Muthyala Haram", 
+#                           "GrossWeight"     : "20.45" , 
+#                           "NetWeight"       : "20.45", 
+#                           "Rate"            : "4562", 
+#                           "Purity"          : "916 KDM",
+#                           "Material"        : "Gold",
+#                           "Wastage"         : "10%",
+#                           "Amount"          : "",
+#                           "Making"          : "1000" ,
+#                           "Total"           : ""
+#                       }
     
-items=[item1,item2]
+# items=[item1,item2]
 
 
-# invoicenumber=generateBill(items,otherVariables)
-# url=r'file://C:\Users\krishnasai\Desktop\Django Projects\bill\desktop Stand Alone\invoices' +"\\"+invoicenumber+".pdf"
+# # invoicenumber=generateBill(items,otherVariables)
+# # url=r'file://C:\Users\krishnasai\Desktop\Django Projects\bill\desktop Stand Alone\invoices' +"\\"+invoicenumber+".pdf"
 
-# # print("check")
-# # print(invoicenumber)
-# # print(url)
+# # # print("check")
+# # # print(invoicenumber)
+# # # print(url)
 
-# webbrowser.open_new(url)
+# # webbrowser.open_new(url)
 

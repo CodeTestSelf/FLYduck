@@ -2,12 +2,33 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from backend.generatebill import *
 import os
+from backend.items import send
+
+
 
 
 def index(request):
-    
+    otherVariables={}
     myDict = dict(request.GET)
-    print(myDict)
+    
+    if myDict=={}:
+        pass
+    else:  
+        print(myDict)     
+        for x in myDict:  # Adds Data to customerdata variables
+            otherVariables[x]=myDict[x]
+            if x =="PaymentMode":
+                break
+    
+          #Creates variables based on number of items and adds them to items array 
+        
+        items=send(myDict) 
+
+
+        print()
+  
+    
+    
     if myDict=={}:
         pass
     else:
@@ -17,7 +38,7 @@ def index(request):
                            "Email_id"          :"",
                            "invoiceNumber"     :"12345",
                            "PaymentMode"       :"Cash"
-                        }
+                    }
 
         item1 = {                 "_id"             : "123", 
                           "ProductName"     : "Muthyala Haram1234567124312", 
@@ -44,19 +65,15 @@ def index(request):
                           "Total"           : ""
                       }
         items=[item1,item2]
+        print(items)
         invoicenumber=generateBill(items,otherVariables)
         directory = os.getcwd() 
         url=directory+ r"\backend\invoices" +"\\"+invoicenumber+".pdf"
-    
-
         directory = os.getcwd() 
 
         print(directory)
-
-        print("check")
-        print(invoicenumber)
-        print(url)
-
+        print(otherVariables)
+        
         webbrowser.open_new(url)
         
     form={'form':"click for bill form "}

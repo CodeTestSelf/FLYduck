@@ -6,20 +6,20 @@
 {%endblock%}
 
 {%block body%}
-
+<script type="text/javascript" src="{{STATIC_URL}}/static/js/script.js">
+  
+</script>
 <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
 
 
   {%csrf_token%}
-<script type="text/javascript" src="{{STATIC_URL}}/static/js/script.js">
-  document.write("hello")
-</script>
 
 
 
 
 
-<input button action="" value="add Item" onclick="addItem()" id = "add" method="POST"></button>
+
+<input button action="" value="add Itema" onclick="addItem()" id = "add" method="POST"></button>
 {{form}}
 
 {%endblock%}
