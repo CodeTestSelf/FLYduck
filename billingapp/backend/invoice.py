@@ -15,7 +15,9 @@ def generate_invoice(items,otherVariables,gst,invoiceNumber):
     InvoiceNumber = str(x.year)+str(x.month)+str(x.day)+str(billNo)
     paymentMode=otherVariables["PaymentMode"]
 
+    
     customerName=otherVariables["CustomerName"]
+    
     customerAddress=otherVariables["CustomerAddress"]
     customerContact=otherVariables["CustomerContact"]
 
