@@ -4,7 +4,7 @@ from backend.invoice import generate_invoice
 import datetime
 import webbrowser
 
-def invoiceNumber(): #generates invoice number
+def invoiceNumber(): #generates invoice number s
     myclient = pymongo.MongoClient('mongodb://localhost:27017/')
     mydb = myclient["SoumyaJewellers"]
     mycol = mydb["invoiceNumber"]
